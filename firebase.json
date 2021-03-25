@@ -1,0 +1,45 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 3000
+    },
+    "functions": {
+      "port": 5000
+    },
+    "firestore": {
+      "port": 8802
+    },
+    "database": {
+      "port": 3500
+    },
+    "hosting": {
+      "port": 5400
+    },
+    "pubsub": {
+      "port": 300
+    },
+    "ui": {
+      "enabled": true
+    }
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  }
+}
