@@ -35,39 +35,39 @@ app.listen(port, () => console.log(`Server is listening on port: ${port}`))
   // ? `npm install --save-dev @babel/preset-env`
 
 // !You MUST Build A Router Component and import it.
-  // ? <Switch> <Route path="/" Component={Home} /> etc.. </Switch>
+<Switch> <Route path="/" Component={Home} /> etc.. </Switch>
 
 // !THEN import dependencies:
-  // ? import 'babel-polyfill', import React from 'react', import ReactDOMServer from 'react-dom/server' import { StaticRouter } from 'react-router'
+import 'babel-polyfill', import React from 'react', import ReactDOMServer from 'react-dom/server' import { StaticRouter } from 'react-router'
 
 // !Then tell the app to use the build bundle after use(bodyParser)
-  //  ? app.use(express.static('build/public'))
+app.use(express.static('build/public'))
 
 // !Add this code just before app.listen()
 
-// app.get('/*', (req, res) => {
-//   const context = {}
+app.get('/*', (req, res) => {
+  const context = {}
 
-//   const content = ReactDOMServer.renderToString(
-//     <StaticRouter location={req.url} context={context}>
-//       <Router />
-//     </StaticRouter>
-//   )
+const content = ReactDOMServer.renderToString(
+  <StaticRouter location={req.url} context={context}>
+    <Router />
+  </StaticRouter>
+)
   
-//   const html = `
-//     <html>
-//       <head></head>
-//       <body>
-//         <div id="root">
-//           ${content}
-//         </div>
-//         <script src="./client_bundle.js"></script>
-//       </body>
-//     </html>
-//     `
+  const html = `
+    <html>
+      <head></head>
+      <body>
+        <div id="root">
+          ${content}
+        </div>
+        <script src="./client_bundle.js"></script>
+      </body>
+    </html>
+    `
 
-//     res.send(html)
-// })
+    res.send(html)
+})
 
 //  !You MUST run the webpack scripts to build this! (SEE webpack.client & webpack.server.js files.)
   // ? "dev": "npm-run-all --parallel webpack:*",
