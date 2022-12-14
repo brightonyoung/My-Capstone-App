@@ -35,7 +35,7 @@
     "create-nuxt-app": "^3.5.2",
     "docker": "^1.0.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mysql": "^2.18.1",
     "node.js": "^0.0.1-security",
     "nodemon": "^2.0.6",
